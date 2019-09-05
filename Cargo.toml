@@ -17,6 +17,12 @@ include = [
 ]
 
 [dependencies]
-env_logger = "0.6.2"
-log = "0.4"
-chrono = "0.4.4"
+env_logger = { version = "0.6.2", default-features = false, features = ["termcolor"] }
+log = { version = "0.4", default-features = false }
+chrono = { version = "0.4.4", default-features = false, features = ["clock"] }
+
+[features]
+default = ["atty", "humantime", "regex"]
+atty = ["env_logger/atty"]
+humantime = ["env_logger/humantime"]
+regex = ["env_logger/regex"]
